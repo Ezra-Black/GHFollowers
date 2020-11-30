@@ -14,12 +14,13 @@ class GFButton: UIButton {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
-        fatalError("⚠️init(coder:) has not been implemented⚠️")
+        fatalError("init(coder:) has not been implemented")
     }
     
     
-    init(backroundColor: UIColor, title: String) {
+    init(backgroundColor: UIColor, title: String) {
         super.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.setTitle(title, for: .normal)
@@ -33,5 +34,5 @@ class GFButton: UIButton {
         titleLabel?.font        = UIFont.preferredFont(forTextStyle: .headline)
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
 }
+
