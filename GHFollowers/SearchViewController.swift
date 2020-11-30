@@ -13,9 +13,9 @@ class SearchViewController: UIViewController {
     let usernameTextField   = GFTextField()
     let callToActionButton  = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
-    var isUserNameEntered: Bool { return !usernameTextField.text!.isEmpty }
-    
+    var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -28,7 +28,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     
@@ -37,17 +37,17 @@ class SearchViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    //passing username data to next view
-    @objc func pushFollowerListViewController() {
-        guard isUserNameEntered else {
+    
+    @objc func pushFollowerListVC() {
+        guard isUsernameEntered else {
             presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "Ok")
             return
         }
         
-        let followerListViewController      = FollowersListViewController()
-        followerListViewController.username = usernameTextField.text
-        followerListViewController.title    = usernameTextField.text
-        navigationController?.pushViewController(followerListViewController, animated: true)
+        let followerListVC      = FollowersListViewController()
+        followerListVC.username = usernameTextField.text
+        followerListVC.title    = usernameTextField.text
+        navigationController?.pushViewController(followerListVC, animated: true)
     }
     
     
@@ -80,21 +80,21 @@ class SearchViewController: UIViewController {
     
     func configureCallToActionButton() {
         view.addSubview(callToActionButton)
-        callToActionButton.addTarget(self, action: #selector(pushFollowerListViewController), for: .touchUpInside)
+        callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             callToActionButton.heightAnchor.constraint(equalToConstant: 50)
-        
         ])
     }
 }
 
+
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        pushFollowerListViewController()
+        pushFollowerListVC()
         return true
     }
 }
