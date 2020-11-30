@@ -22,6 +22,11 @@ class FollowerCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarImageView.image = avatarImageView.placeholderImage
+    }
+    
     
     func set(follower: Follower) {
         usernameLabel.text = follower.login
