@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F01C36125773F290001F9AC /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F01C36025773F290001F9AC /* UserInfoViewController.swift */; };
 		7F3B2FC42574BE9A00F1F091 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3B2FC32574BE9A00F1F091 /* GFButton.swift */; };
 		7F3B2FC72574C21E00F1F091 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3B2FC62574C21E00F1F091 /* GFTextField.swift */; };
 		7F7780D525752BF1002A4D28 /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7780D425752BF1002A4D28 /* FollowersListViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F01C36025773F290001F9AC /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		7F3B2FC32574BE9A00F1F091 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		7F3B2FC62574C21E00F1F091 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		7F7780D425752BF1002A4D28 /* FollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				7FBC912825733D2500A6D36D /* SearchViewController.swift */,
 				7FBC912B25733D4F00A6D36D /* FavoriteListViewController.swift */,
 				7F7780D425752BF1002A4D28 /* FollowersListViewController.swift */,
+				7F01C36025773F290001F9AC /* UserInfoViewController.swift */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F3B2FC72574C21E00F1F091 /* GFTextField.swift in Sources */,
+				7F01C36125773F290001F9AC /* UserInfoViewController.swift in Sources */,
 				7FBC912C25733D4F00A6D36D /* FavoriteListViewController.swift in Sources */,
 				7F7780E425753B57002A4D28 /* UIViewController+Ext.swift in Sources */,
 				7F3B2FC42574BE9A00F1F091 /* GFButton.swift in Sources */,
