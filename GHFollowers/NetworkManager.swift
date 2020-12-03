@@ -8,9 +8,9 @@
 import UIKit
 
 class NetworkManager {
-    static let shared     = NetworkManager()
-    private let baseURL   = "https://api.github.com/users/"
-    let cache             = NSCache<NSString, UIImage>()
+    static let shared   = NetworkManager()
+    private let baseURL = "https://api.github.com/users/"
+    let cache           = NSCache<NSString, UIImage>()
     
     private init() {}
     
@@ -23,7 +23,7 @@ class NetworkManager {
             return
         }
         
-        let _: Void = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let _ = error {
                 completed(.failure(.unableToComplete))
@@ -48,11 +48,13 @@ class NetworkManager {
             } catch {
                 completed(.failure(.invalidData))
             }
-        }.resume()
+        }
+        
+        task.resume()
     }
     
     
-    func getUserInfo(for username: String, completed: @escaping (Result<[User], GFError>) -> Void) {
+    func getUserInfo(for username: String, completed: @escaping (Result<User, GFError>) -> Void) {
         let endpoint = baseURL + "\(username)"
         
         guard let url = URL(string: endpoint) else {
@@ -60,7 +62,7 @@ class NetworkManager {
             return
         }
         
-        let _: Void = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let _ = error {
                 completed(.failure(.unableToComplete))
@@ -80,12 +82,14 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let user = try decoder.decode([User].self, from: data)
+                let user = try decoder.decode(User.self, from: data)
                 completed(.success(user))
             } catch {
                 completed(.failure(.invalidData))
             }
-        }.resume()
+        }
+        
+        task.resume()
     }
 }
 
