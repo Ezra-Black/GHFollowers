@@ -17,6 +17,8 @@
 		7F01C38A2579A0160001F9AC /* GFRepoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F01C3892579A0160001F9AC /* GFRepoItemViewController.swift */; };
 		7F01C38D2579A1F50001F9AC /* GFFollowerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F01C38C2579A1F50001F9AC /* GFFollowerItemViewController.swift */; };
 		7F01C3922579A5220001F9AC /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F01C3912579A5220001F9AC /* Date+Ext.swift */; };
+		7F15984F257B4A4600A3FEFE /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F15984E257B4A4600A3FEFE /* PersistenceManager.swift */; };
+		7F159852257B570900A3FEFE /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F159851257B570900A3FEFE /* FavoriteTableViewCell.swift */; };
 		7F3B2FC42574BE9A00F1F091 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3B2FC32574BE9A00F1F091 /* GFButton.swift */; };
 		7F3B2FC72574C21E00F1F091 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3B2FC62574C21E00F1F091 /* GFTextField.swift */; };
 		7F7780D525752BF1002A4D28 /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7780D425752BF1002A4D28 /* FollowersListViewController.swift */; };
@@ -51,6 +53,8 @@
 		7F01C3892579A0160001F9AC /* GFRepoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemViewController.swift; sourceTree = "<group>"; };
 		7F01C38C2579A1F50001F9AC /* GFFollowerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemViewController.swift; sourceTree = "<group>"; };
 		7F01C3912579A5220001F9AC /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		7F15984E257B4A4600A3FEFE /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		7F159851257B570900A3FEFE /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		7F3B2FC32574BE9A00F1F091 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		7F3B2FC62574C21E00F1F091 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		7F7780D425752BF1002A4D28 /* FollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				7F7780F625754DC2002A4D28 /* NetworkManager.swift */,
+				7F15984E257B4A4600A3FEFE /* PersistenceManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				7F7781002575631E002A4D28 /* FollowerCollectionViewCell.swift */,
+				7F159851257B570900A3FEFE /* FavoriteTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 				7F7780F3257548D0002A4D28 /* User.swift in Sources */,
 				7F7780E1257536B6002A4D28 /* GFAlertViewController.swift in Sources */,
 				7F01C38A2579A0160001F9AC /* GFRepoItemViewController.swift in Sources */,
+				7F159852257B570900A3FEFE /* FavoriteTableViewCell.swift in Sources */,
 				7F7781052575639E002A4D28 /* GFAvatarImageView.swift in Sources */,
 				7F7781012575631E002A4D28 /* FollowerCollectionViewCell.swift in Sources */,
 				7F7780F02575480A002A4D28 /* Follower.swift in Sources */,
@@ -352,6 +359,7 @@
 				7F7780DB257534E2002A4D28 /* GFTitleLabel.swift in Sources */,
 				7F7780D825752EAD002A4D28 /* String+Ext.swift in Sources */,
 				7F7781082575780D002A4D28 /* UIHelper.swift in Sources */,
+				7F15984F257B4A4600A3FEFE /* PersistenceManager.swift in Sources */,
 				7F7780F725754DC2002A4D28 /* NetworkManager.swift in Sources */,
 				7F01C38725799B4A0001F9AC /* GFItemInfoViewController.swift in Sources */,
 				7F01C3922579A5220001F9AC /* Date+Ext.swift in Sources */,
