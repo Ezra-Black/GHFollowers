@@ -14,8 +14,7 @@ class GFItemInfoViewController: UIViewController {
     let actionButton    = GFButton()
     
     var user: User!
-    weak var delegate: UserInfoVCDelegate!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutUI()
@@ -61,8 +60,7 @@ class GFItemInfoViewController: UIViewController {
     }
     
    private func layoutUI() {
-    view.addSubview(stackView)
-    view.addSubview(actionButton)
+    view.addSubviews(stackView, actionButton)
     
     let padding: CGFloat = 20
     stackView.translatesAutoresizingMaskIntoConstraints = false

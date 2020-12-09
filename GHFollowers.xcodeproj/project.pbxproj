@@ -43,6 +43,7 @@
 		7FBC911D25731B6400A6D36D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBC911B25731B6400A6D36D /* LaunchScreen.storyboard */; };
 		7FBC912925733D2500A6D36D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC912825733D2500A6D36D /* SearchViewController.swift */; };
 		7FBC912C25733D4F00A6D36D /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC912B25733D4F00A6D36D /* FavoriteListViewController.swift */; };
+		7FFE7AE625816A2E009FA99B /* UIVIew+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE7AE525816A2E009FA99B /* UIVIew+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		7FBC911E25731B6400A6D36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FBC912825733D2500A6D36D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7FBC912B25733D4F00A6D36D /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
+		7FFE7AE525816A2E009FA99B /* UIVIew+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				7F7780D725752EAD002A4D28 /* String+Ext.swift */,
 				7F7780E325753B57002A4D28 /* UIViewController+Ext.swift */,
 				7F01C3912579A5220001F9AC /* Date+Ext.swift */,
+				7FFE7AE525816A2E009FA99B /* UIVIew+Ext.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				7F15984F257B4A4600A3FEFE /* PersistenceManager.swift in Sources */,
 				7F7780F725754DC2002A4D28 /* NetworkManager.swift in Sources */,
 				7F01C38725799B4A0001F9AC /* GFItemInfoViewController.swift in Sources */,
+				7FFE7AE625816A2E009FA99B /* UIVIew+Ext.swift in Sources */,
 				7F01C3922579A5220001F9AC /* Date+Ext.swift in Sources */,
 				7FBC911325731B6200A6D36D /* SceneDelegate.swift in Sources */,
 				7F7780DE25753623002A4D28 /* GFBodyLabel.swift in Sources */,
