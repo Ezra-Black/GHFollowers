@@ -29,13 +29,15 @@ class FollowersListViewController: GFDataLoadingViewController {
     
     init(username: String) {
         super.init(nibName: nil, bundle: nil)
-        self.username  = username
-        title          = title
+        self.username   = username
+        title           = username
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +77,8 @@ class FollowersListViewController: GFDataLoadingViewController {
         let searchController                                    = UISearchController()
         searchController.searchResultsUpdater                   = self
         searchController.searchBar.placeholder                  = "Search for a username"
+        searchController.obscuresBackgroundDuringPresentation   = false
         navigationItem.searchController                         = searchController
-        searchController.obscuresBackgroundDuringPresentation   = true
     }
     
     
@@ -94,14 +96,17 @@ class FollowersListViewController: GFDataLoadingViewController {
                 self.followers.append(contentsOf: followers)
                 
                 if self.followers.isEmpty {
-                    let message = "This user doesn't have any followers, Go follow them 🥺."
+                    let message = "This user doesn't have any followers. Go follow them 😀."
                     DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+                    return
                 }
+                
                 self.updateData(on: self.followers)
                 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Bad Stuff Happend", message: error.rawValue, buttonTitle: "Ok")
             }
+            
             self.isLoadingMoreFollowers = false
         }
     }
@@ -137,12 +142,15 @@ class FollowersListViewController: GFDataLoadingViewController {
                 
                 PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
                     guard let self = self else { return }
+                    
                     guard let error = error else {
-                        self.presentGFAlertOnMainThread(title: "Success!", message: "You have successfully added this user to your favorites list 🎉", buttonTitle: "Ok")
+                        self.presentGFAlertOnMainThread(title: "Success!", message: "You have successfully favorited this user 🎉", buttonTitle: "Hooray!")
                         return
                     }
+                    
                     self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
                 }
+                
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
@@ -166,19 +174,20 @@ extension FollowersListViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let activeArray                     = isSearching ? filteredFollowers : followers
-        let follower                        = activeArray[indexPath.item]
+        let activeArray     = isSearching ? filteredFollowers : followers
+        let follower        = activeArray[indexPath.item]
         
-        
-        let destinationViewController       = UserInfoViewController()
-        destinationViewController.username  = follower.login
-        destinationViewController.delegate  = self
-        let navigationController            = UINavigationController(rootViewController: destinationViewController)
-        present(navigationController, animated: true)
+        let destVC          = UserInfoViewController()
+        destVC.username     = follower.login
+        destVC.delegate     = self
+        let navController   = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
     }
 }
 
+
 extension FollowersListViewController: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {
             filteredFollowers.removeAll()
@@ -186,13 +195,16 @@ extension FollowersListViewController: UISearchResultsUpdating {
             isSearching = false
             return
         }
+        
         isSearching = true
         filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredFollowers)
     }
 }
 
+
 extension FollowersListViewController: FollowerListViewControllerDelegate {
+    
     func didRequestFollowers(for username: String) {
         self.username   = username
         title           = username
