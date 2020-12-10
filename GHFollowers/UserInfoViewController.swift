@@ -41,6 +41,7 @@ class UserInfoViewController: UIViewController {
         navigationItem.rightBarButtonItem = doneButton
     }
     
+    
     func configureScrollView() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -126,10 +127,8 @@ class UserInfoViewController: UIViewController {
 extension UserInfoViewController: GFRepoItemVCDelegate {
     
     func didTapGitHubProfile(for user: User) {
-        guard let url = URL(string: user.htmlUrl) else { presentGFAlertOnMainThread(title: "Invalid URL",
-                                                                                    message: "The message attached to this user is invalid",
-                                                                                    buttonTitle: "Ok")
-            return
+        guard let url = URL(string: user.htmlUrl) else { presentGFAlertOnMainThread(title: "Invalid URL", message: "The message attached to this user is invalid", buttonTitle: "Ok")
+        return
         }
         presentSafariViewController(with: url)
     }
