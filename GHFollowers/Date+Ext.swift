@@ -4,11 +4,11 @@
 //
 //  Created by Ezra Black on 12/3/20.
 //
+// MARK: -Boilerplate-
 
 import Foundation
 
 extension Date {
-    
     
     func convertToMonthYearFormat() -> String {
         let dateFormatter = DateFormatter()

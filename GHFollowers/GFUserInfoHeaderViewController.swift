@@ -19,43 +19,36 @@ class GFUserInfoHeaderViewController: UIViewController {
     
     var user: User!
     
+    
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
         self.user = user
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubviews()
+        view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
         layoutUI()
         configureUIElements()
     }
     
     
     func configureUIElements() {
-        avatarImageView.downloadImage(from: user.avatarUrl)
+        avatarImageView.downloadImage(fromURL: user.avatarUrl)
         usernameLabel.text                  = user?.login
         nameLabel.text                      = user?.name ?? ""
         locationLabel.text                  = user?.location ?? "No Location"
         bioLabel.text                       = user?.bio ?? "No bio available"
         bioLabel.numberOfLines              = 3
         
-        locationImageView.image             = UIImage(systemName: SFSymbols.locationPin)
+        locationImageView.image             = SFSymbols.locationPin
         locationImageView.tintColor         = .secondaryLabel
-    }
-    
-    
-    func addSubviews() {
-        view.addSubview(avatarImageView)
-        view.addSubview(usernameLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(locationImageView)
-        view.addSubview(locationLabel)
-        view.addSubview(bioLabel)
     }
     
     
@@ -95,10 +88,7 @@ class GFUserInfoHeaderViewController: UIViewController {
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: textImagePadding),
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bioLabel.heightAnchor.constraint(equalToConstant: 60)
-            
-            
+            bioLabel.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
-
 }
