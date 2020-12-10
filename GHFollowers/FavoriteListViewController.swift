@@ -65,6 +65,8 @@ class FavoriteListViewController: GFDataLoadingViewController {
         }
     }
 }
+
+
 extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favorites.count
@@ -86,10 +88,9 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
         navigationController?.pushViewController(destinationViewController, animated: true)
     }
     
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        
-
         
         PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] error in
             guard let self = self else { return }
