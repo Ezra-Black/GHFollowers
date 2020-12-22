@@ -7,8 +7,6 @@
 
 import UIKit
 
-import UIKit
-
 class GFTextField: UITextField {
 
     override init(frame: CGRect) {
